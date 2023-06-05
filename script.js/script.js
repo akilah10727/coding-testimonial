@@ -1,19 +1,81 @@
-const john = document.querySelector(".John");
-const tanya = document.querySelector(".Tanya");
-const prev = document.querySelectorAll(".prev__button");
-const next = document.querySelectorAll(".next__button");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="style.css/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css/style.css">
+  <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
+</head>
+<body>
+<div class="container">
+    <div class="Tanya">
+      <div class="testimonial">
+        <p>
+          “I’ve been interested in coding for a while but never taken the jump, until now. 
+          I couldn’t recommend this course enough. I’m now in the job of my dreams and so 
+          excited about the future.”
+        </p>
+        <div class="name-title">
+          <span class="name">Tanya Sinclair</span>
+          <span class="title">UX Engineer</span>
+        </div>
+      </div>
+      <div class="image__container">
+        <img src="./style.css/images/image-tanya.jpg" alt="image-tanya">
+        <div class="nav__buttons">
+          <button class="prev__button"></button>
+          <button class="next__button"></button>
+        </div>
+      </div>
+    </div>
 
-john.classList.add("hide");
+    <div class="John hide">
+      <div class="testimonial">
+        <p>
+          “If you want to lay the best foundation possible I’d recommend taking this course. 
+          The depth the instructors go into is incredible. I now feel so confident about 
+          starting up as a professional developer.”
+        </p>
+        <div class="name-title">
+          <span class="name">John Tarkpor</span>
+          <span class="title">Junior Front-end Developer</span>
+        </div>
+      </div>
+      <div class="image__container">
+        <img src="./style.css/images/image-john.jpg" alt="image-john">
+        <div class="nav__buttons">
+          <button class="prev__button"></button>
+          <button class="next__button"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const john = document.querySelector(".John");
+      const tanya = document.querySelector(".Tanya");
+      const prevButtons = document.querySelectorAll(".prev__button");
+      const nextButtons = document.querySelectorAll(".next__button");
 
-const slideChange = () => {
-  if (john.classList.contains("hide")) {
-    john.classList.remove("hide");
-    tanya.classList.add("hide");
-  } else if (tanya.classList.contains("hide")) {
-    tanya.classList.remove("hide");
-    john.classList.add("hide");
-  } else {
-    john.classList.add("hide");
-  }
-};
-prev.forEach(item => item.addEventListener("click", slideChange));
+      john.classList.add("hide");
+
+      const slideChange = () => {
+        if (john.classList.contains("hide")) {
+          john.classList.remove("hide");
+          tanya.classList.add("hide");
+        } else if (tanya.classList.contains("hide")) {
+          tanya.classList.remove("hide");
+          john.classList.add("hide");
+        } else {
+          john.classList.add("hide");
+        }
+      };
+
+      prevButtons.forEach(item => item.addEventListener("click", slideChange));
+      nextButtons.forEach(item => item.addEventListener("click", slideChange));
+    });
+  </script>
+</body>
+</html>
+
